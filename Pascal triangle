@@ -1,0 +1,52 @@
+import java.io.*;
+import java.util.* ;
+
+import java.util.ArrayList;
+
+public class Solution {
+	public static ArrayList<ArrayList<Long>> printPascal(int n) {
+		ArrayList<ArrayList<Long>> A = new ArrayList<>();
+        ArrayList<Long> a ;
+        int incr_length = 0;
+        for(int i=0 ; i<n ; i++)
+        {
+            if(i==0)
+            {
+                a = new ArrayList<>();
+                a.add(1L);
+                A.add(a);
+                incr_length++;
+            }
+            else if(i==1)
+            {
+                a = new ArrayList<>();
+                a.add(1L);
+                a.add(1L);
+                A.add(a);
+
+                incr_length++;
+                
+            }
+            else {
+                ArrayList<Long> pr_a = new ArrayList<>();
+                pr_a =  A.get(A.size()-1);
+                a = new ArrayList<>();
+                a.add(1L);
+                int j=1;
+                
+                while(j!=incr_length)
+                {
+                    a.add(pr_a.get(j-1) + pr_a.get(j));
+                    j++;
+                }
+                a.add(1L);
+                A.add(a);
+                incr_length++;
+            }
+        }
+        return A;
+        
+    
+                 
+	}
+}
