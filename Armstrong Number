@@ -1,0 +1,16 @@
+class Solution {
+    static String armstrongNumber(int n){
+        int newNumber = 0;
+        int duplicate_n= n;
+      while(n!=0)
+      {
+          int digit = n%10;
+          newNumber+=(int)Math.pow(digit,3);
+          n/=10;
+          
+      }
+      if(newNumber==duplicate_n)return "Yes";
+      return "No";
+     
+    }
+}
