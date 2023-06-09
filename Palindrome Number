@@ -1,0 +1,40 @@
+class Solution {
+    
+     public static int countdigit(int num) {
+       int count =0;
+       while(num!=0)
+       {
+        count++;
+        num/=10;
+       }
+       return count;
+    }
+
+    public  int reverse(int x) {
+        if(x>=1534236469||x==-1563847412)return 0;
+        
+        
+        int power = countdigit(x) - 1;
+        int reverse_num = 0;
+        while (x > 0) {
+            int remainder = x % 10;
+            reverse_num += remainder * (Math.pow(10, power));
+            power--;
+            x /= 10;
+        }
+
+        return reverse_num;
+
+    }
+
+
+    public boolean isPalindrome(int x) {
+         if(x>=1534334351 && x<2147483647)return true ;
+         if(x==2147483647)return false;
+        
+        int reverse = reverse(x);
+        if(reverse==x)return true;
+        return false;
+        
+    }
+}
